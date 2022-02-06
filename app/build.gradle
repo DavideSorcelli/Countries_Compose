@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.apollographql.apollo3' version "3.0.0"
 }
 
 android {
@@ -43,6 +44,9 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    apollo {
+        packageName.set("com.dsorcelli.countries")
+    }
 }
 
 dependencies {
@@ -55,6 +59,7 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.4.0'
 
     implementation "com.github.skydoves:landscapist-glide:1.4.6"
+    implementation "com.apollographql.apollo3:apollo-runtime:3.0.0"
 
 
     testImplementation 'junit:junit:4.13.2'
