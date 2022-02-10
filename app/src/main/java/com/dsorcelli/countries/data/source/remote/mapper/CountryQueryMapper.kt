@@ -1,10 +1,10 @@
 package com.dsorcelli.countries.data.source.remote.mapper
 
-import com.dsorcelli.countries.CountryQuery
+import com.dsorcelli.countries.CountriesQuery
 import com.dsorcelli.countries.domain.model.Country
 
 
-fun CountryQuery.Country.toDomain(): Country {
+fun CountriesQuery.Country.toDomain(): Country {
     return Country(
         code = this.code,
         name = this.name,
@@ -12,6 +12,6 @@ fun CountryQuery.Country.toDomain(): Country {
     )
 }
 
-fun List<CountryQuery.Country>.toDomain(): List<Country> {
+fun List<CountriesQuery.Country>.toDomain(): List<Country> {
     return map { it.toDomain() }
 }
