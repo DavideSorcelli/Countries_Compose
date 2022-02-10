@@ -2,5 +2,8 @@ query Countries {
     countries {
         name
         code
+        languages {
+            name
+        }
     }
 }

@@ -1,0 +1,9 @@
+query Country {
+    country(code: "AM") {
+        name
+        code
+        languages {
+            name
+        }
+    }
+}

@@ -8,7 +8,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.dsorcelli.countries.domain.model.Country
 import com.dsorcelli.countries.presentation.countries_list.CountriesListScreen
 import com.dsorcelli.countries.presentation.ui.theme.CountriesTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
