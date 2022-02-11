@@ -1,10 +1,10 @@
 package com.dsorcelli.countries.data.source.remote
 
-import com.dsorcelli.countries.CountriesQuery
-import com.dsorcelli.countries.CountryQuery
+import com.dsorcelli.countries.domain.model.Country
+import kotlinx.coroutines.flow.Flow
 
 
 interface ICountriesRemoteSource {
-    fun getCountries(): List<CountriesQuery.Country>
-    fun getCountry(): CountryQuery.Country
+    fun getCountries(): Flow<List<Country>>
+    fun getCountry(code: String): Flow<Country>
 }

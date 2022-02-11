@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -14,12 +15,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dsorcelli.countries.domain.model.Country
 import com.dsorcelli.countries.presentation.countries_list.components.CountriesListItem
-
+import androidx.lifecycle.viewmodel.compose.*
 
 @Composable
 fun CountriesListScreen(
-    countries: List<Country>
+    countries: List<Country>,
+    viewModel: CountriesListVM = viewModel()
 ) {
+
+    val state = viewModel.state.value
+    val scope = rememberCoroutineScope()
 
     Box(
         Modifier
@@ -32,27 +37,27 @@ fun CountriesListScreen(
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             items(
-                items = countries,
+                items = state.countries,
                 itemContent = { country ->
                     CountriesListItem(country = country)
                 }
             )
         }
 
-        Spacer(
-            Modifier
-                .fillMaxWidth()
-                .height(36.dp)
-                .background(
-                    brush = Brush.verticalGradient(
-                        colors = listOf(
-                            Color.Transparent,
-                            MaterialTheme.colors.background,
-                        )
-                    )
-                )
-                .align(Alignment.BottomCenter)
-        )
+//        Spacer(
+//            Modifier
+//                .fillMaxWidth()
+//                .height(36.dp)
+//                .background(
+//                    brush = Brush.verticalGradient(
+//                        colors = listOf(
+//                            Color.Transparent,
+//                            MaterialTheme.colors.background,
+//                        )
+//                    )
+//                )
+//                .align(Alignment.BottomCenter)
+//        )
 
     }
 

@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.dsorcelli.countries.data.source.remote.di
 
 import com.dsorcelli.countries.data.source.remote.CountriesRemoteSource

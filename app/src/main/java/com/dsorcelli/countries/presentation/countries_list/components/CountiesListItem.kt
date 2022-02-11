@@ -1,6 +1,5 @@
 package com.dsorcelli.countries.presentation.countries_list.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dsorcelli.countries.domain.model.Country
+
 
 @Composable
 fun CountriesListItem(

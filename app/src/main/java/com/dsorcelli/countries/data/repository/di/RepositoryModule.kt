@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.dsorcelli.countries.data.repository.di
 
 import com.dsorcelli.countries.data.repository.CountriesRepository
