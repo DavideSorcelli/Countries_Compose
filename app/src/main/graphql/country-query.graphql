@@ -1,5 +1,5 @@
-query Country {
-    country(code: "AM") {
+query Country($code : ID!) {
+    country(code: $code) {
         name
         code
         languages {
