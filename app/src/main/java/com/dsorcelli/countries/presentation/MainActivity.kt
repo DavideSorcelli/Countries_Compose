@@ -5,10 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.dsorcelli.countries.domain.model.Country
 import com.dsorcelli.countries.presentation.countries_list.CountriesListScreen
 import com.dsorcelli.countries.presentation.ui.theme.CountriesTheme
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainActivityScreen() {
     CountriesTheme {
-        CountriesListScreen(countries = Country.mockList())
+        CountriesListScreen()
     }
 }
 

@@ -8,7 +8,7 @@ fun CountriesQuery.Country.toDomain(): Country {
     return Country(
         code = this.code,
         name = this.name,
-        imgUrl = "https://flagcdn.com/it.svg"
+        imgUrl = "https://flagcdn.com/w640/${this.code.lowercase()}.png"
     )
 }
 

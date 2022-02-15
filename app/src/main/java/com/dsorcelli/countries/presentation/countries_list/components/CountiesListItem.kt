@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dsorcelli.countries.domain.model.Country
@@ -36,20 +37,25 @@ fun CountriesListItem(
             verticalAlignment = Alignment.CenterVertically
         ) {
             CountryFlag(imgUrl = country.imgUrl, modifier = Modifier.fillMaxWidth(0.2f))
-            Row {
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
                 Spacer(modifier = Modifier.width(16.dp))
                 Text(
                     text = country.name,
                     style = MaterialTheme.typography.h5,
                     color = Color.DarkGray,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(5f)
                 )
                 Spacer(modifier = Modifier.width(16.dp))
                 Text(
                     text = country.code,
                     style = MaterialTheme.typography.h5,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.weight(1f)
                 )
-                Spacer(modifier = Modifier.width(8.dp))
             }
         }
     }

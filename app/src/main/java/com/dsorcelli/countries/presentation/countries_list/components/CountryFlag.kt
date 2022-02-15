@@ -21,7 +21,7 @@ fun CountryFlag(
     GlideImage(
         imageModel = imgUrl,
         modifier = modifier
-            .shadow(10.dp, shape = RoundedCornerShape(8.dp))
+            .shadow(6.dp, shape = RoundedCornerShape(8.dp))
             .clip(RoundedCornerShape(8.dp)),
         contentScale = ContentScale.Crop,
         previewPlaceholder = R.drawable.ic_country_flag_it

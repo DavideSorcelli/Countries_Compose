@@ -28,8 +28,25 @@ class CountriesListVM @Inject constructor(
     private fun fetchCountries() {
         getCountriesUC.invoke()
             .onEach {
+                when {
+                    it.isLoading -> {
+                        _state.value = CountriesState(refreshing = true)
+                    }
+                    it.error != null -> {
+
+                    }
+                    else -> {
+                        _state.value = CountriesState(
+                            countries = it.countries
+                        )
+                    }
+                }
                 Log.d("DAVE", "getCountriesUC state: $it")
             }.launchIn(viewModelScope)
+    }
+
+    fun refresh() {
+        fetchCountries()
     }
 
     fun onEvent(event: CountriesEvent) {
@@ -44,5 +61,6 @@ class CountriesListVM @Inject constructor(
 
 data class CountriesState(
     val countries: List<Country> = emptyList(),
-    val countriesOrder: String = "DESC"
+    val countriesOrder: String = "DESC",
+    val refreshing: Boolean = false
 )

@@ -1,39 +1,34 @@
 package com.dsorcelli.countries.presentation.countries_list
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.dsorcelli.countries.domain.model.Country
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dsorcelli.countries.presentation.countries_list.components.CountriesListItem
-import androidx.lifecycle.viewmodel.compose.*
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+
 
 @Composable
 fun CountriesListScreen(
-    countries: List<Country>,
     viewModel: CountriesListVM = viewModel()
 ) {
 
     val state = viewModel.state.value
-    val scope = rememberCoroutineScope()
 
-    Box(
-        Modifier
-            .fillMaxWidth()
-            .background(Color.Transparent)
+    SwipeRefresh(
+        modifier = Modifier.fillMaxSize(),
+        state = rememberSwipeRefreshState(isRefreshing = state.refreshing),
+        onRefresh = { viewModel.refresh() }
     ) {
-
         LazyColumn(
-            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 16.dp),
+            contentPadding = PaddingValues(all = 18.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             items(
@@ -43,22 +38,6 @@ fun CountriesListScreen(
                 }
             )
         }
-
-//        Spacer(
-//            Modifier
-//                .fillMaxWidth()
-//                .height(36.dp)
-//                .background(
-//                    brush = Brush.verticalGradient(
-//                        colors = listOf(
-//                            Color.Transparent,
-//                            MaterialTheme.colors.background,
-//                        )
-//                    )
-//                )
-//                .align(Alignment.BottomCenter)
-//        )
-
     }
 
 }
@@ -66,5 +45,5 @@ fun CountriesListScreen(
 @Preview
 @Composable
 fun CountriesListScreenPreview() {
-    CountriesListScreen(countries = Country.mockList())
+    CountriesListScreen()
 }

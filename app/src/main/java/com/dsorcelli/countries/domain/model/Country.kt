@@ -1,5 +1,6 @@
 package com.dsorcelli.countries.domain.model
 
+
 data class Country(
     val code: String,
     val name: String,
@@ -11,16 +12,18 @@ data class Country(
             return Country(
                 code = "IT",
                 name = "Italy",
-                imgUrl = "https://flagcdn.com/h240/it.png"
+                imgUrl = "https://flagcdn.com/w640/it.png"
             )
         }
+
         fun mockFR(): Country {
             return Country(
                 code = "FR",
                 name = "France",
-                imgUrl = "https://flagcdn.com/h240/fr.png"
+                imgUrl = "https://flagcdn.com/w640/fr.png"
             )
         }
+
         fun mockList(): List<Country> {
             return listOf(
                 mockIT(),
